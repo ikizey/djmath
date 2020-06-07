@@ -1,13 +1,24 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset='utf-8'>
     <title>Learn simple addition</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'amath/amath.css' %}" />
 </head>
 
 <body>
-    <h1>Learn how add!</h1>
+    <h1>Learn how to add!</h1>
+
+    {% for test in tests %}
+    <div class="test">{{ test.0 }}
+        <img src="#" alt="??" width="19px" height="19px"></img>
+        <input type="text" class="{{ test.1 }}" maxlength="2" size="3" placeholder="0">
+    </div>
+    {% endfor %}
+    <script src="{% static 'amath/amath.js' %}"></script>
 </body>
 
 </html>
