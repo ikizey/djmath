@@ -10,11 +10,13 @@ from functools import partial
 from random import randint
 
 
-def __generate_k_examples(k: int, min: int = 1, max: int = 11) -> None:
-    if abs(max) < abs(min):
-        raise ValueError(f"abs(min) should be <= abs(max)")
-    if k > abs(max - min):
-        raise ValueError(f"k should be <= abs(max-min)")
+def __generate_k_examples(k: int = 5, min: int = 1, max: int = 11) -> None:
+    if min > max:
+        min, max = max, min
+    if k > ((abs(max - min) + 1) ** 2):
+        k = ((abs(max - min) + 1) ** 2)
+    if k < 1:
+        k = 1
 
     result = set()
 
