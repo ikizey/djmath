@@ -29,10 +29,10 @@ def __generate_k_examples(k: int, min: int = 1, max: int = 11) -> None:
 
 get_k_examples = __generate_k_examples
 
-print(list(get_k_examples(5)))
-print(list(__generate_k_examples(5, 1, 11)))
-print(list(__generate_k_examples(5, 1, 11)))
-print(list(__generate_k_examples(5, 1, 11)))
+# print(list(get_k_examples(5)))
+# print(list(__generate_k_examples(5, 1, 11)))
+# print(list(__generate_k_examples(5, 1, 11)))
+# print(list(__generate_k_examples(5, 1, 11)))
 
 # OLD CODE:
 
