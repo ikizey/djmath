@@ -10,24 +10,24 @@ from functools import partial
 from random import randint
 
 
-def __generate_k_examples(k: int, min: int, max: int) -> None:
+def __generate_k_examples(k: int, min: int = 1, max: int = 11) -> None:
     if abs(max) < abs(min):
-        raise AttributeError(f"abs(min) should be <= abs(max)")
+        raise ValueError(f"abs(min) should be <= abs(max)")
     if k > abs(max - min):
-        raise AttributeError(f"k should be <= abs(max-min)")
-    result = set()
-    i, j = (randint(min, max) for _ in range(2))
+        raise ValueError(f"k should be <= abs(max-min)")
 
-    for _ in range(k):
-        while (i, j) in result:
-            i, j = (randint(min, max) for _ in range(2))
+    result = set()
+
+    while len(result) < k:
+        i, j = (randint(min, max) for _ in range(2))
+        if (i, j) in result:
+            continue
         result.add((i, j))
         yield ("".join(f"{i} + {j} = "), i + j)
     return
 
 
-# sets defaults for __generate_k_examples
-get_k_examples = partial(__generate_k_examples, min=1, max=11)
+get_k_examples = __generate_k_examples
 
 print(list(get_k_examples(5)))
 print(list(__generate_k_examples(5, 1, 11)))
