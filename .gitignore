@@ -1,9 +1,7 @@
 venv
-djmath/__pycache__
-__pycache__/
-*__pycache__/
-**.pyc
+
+
 *.pyc
-*/*.pyc
-migrations
 .vscode
+*.sqlite3
+/.DStore
